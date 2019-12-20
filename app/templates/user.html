@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Flasky - {{ user.username }}{% endblock %}
+
+{% block page_content %}
+<body class="text-center" >
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<main role="main" class="inner cover">
+    <h1 class="cover-heading">{{ user.name }}</h1>
+    <p class="lead">StudentID:{{user.student_id}}</p>
+    <p class="lead">From {{user.department}}</p>
+    <p class="lead">Current email: {{user.email}}</p>
+    <p class="lead">Member since {{ moment(user.member_since).format('L') }}. Last seen {{ moment(user.last_seen).fromNow() }}.</p>
+</main>
+</div>
+</body>
+{% endblock %}

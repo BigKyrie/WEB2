@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+<body class="text-center" >
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+{% if not current_user.is_authenticated %}
+<main role="main" class="inner cover">
+    <h1 class="cover-heading">Hello,Stranger! Please Login first</h1>
+    <p class="lead">This is the Teaching Management System of SWJTU</p>
+    <p class="lead">It can help you to select class and check your module and grade</p>
+    <p class="lead">
+      Have a Good DAY!
+    </p>
+  </main>
+{% endif %}
+{% if current_user.is_authenticated and not current_user.is_administrator() %}
+<main role="main" class="inner cover">
+    <h1 class="cover-heading">Hello,{{current_user.name}}! Nice to meet you again!</h1>
+    <p class="lead">This is the Teaching Management System of SWJTU</p>
+    <p class="lead">
+      Have a Good DAY!
+    </p>
+  </main>
+{% endif %}
+{% if current_user.is_administrator() %}
+<main role="main" class="inner cover">
+    <h1 class="cover-heading">Hello,Administrator! Nice to meet you again!</h1>
+    <p class="lead">This is the Teaching Management System of SWJTU</p>
+    <p class="lead">This System can help you to manage the teaching task</p>
+    <p class="lead">
+      Have a Good DAY!
+    </p>
+  </main>
+{% endif %}
+
+<footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p>Teaching Management System for SWJTU , by Wei Yuheng.</p>
+    </div>
+    </footer>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Module Name</th>
+        <th>Module Leader</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for user_module in user_modulee %}
+    {% for module in modules %}
+    {% if module.id==user_module.module_id %}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{module.title}}</td>
+      <td>{{module.staff}}</td>
+      <td>{{user_module.grade}}</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

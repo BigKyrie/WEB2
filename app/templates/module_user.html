@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Module Name</th>
+        <th>Name</th>
+        <th>StudentID</th>
+        <th>School</th>
+        <th>Phone Number</th>
+        <th>Give Final Score</th>
+        <th>Remove Student</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+    <tr>
+      <td>{{module.title}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.student_id}}</td>
+      <td>{{user.department}}</td>
+      <td>{{user.phone_number}}</td>
+      <td><a href="{{url_for('main.give_score',id=user.id,idd=module.id)}}"><span class="glyphicon glyphicon-cog"></span></a></td>
+      <td><a href="{{url_for('main.delete_student_from_module',id=user.id,idd=module.id)}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

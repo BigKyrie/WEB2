@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>StudentID</th>
+        <th>School</th>
+        <th>Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+    <tr>
+      <td>{{user.name}}</td>
+      <td>{{user.student_id}}</td>
+      <td>{{user.department}}</td>
+      <td>{{user.phone_number}}</td>
+      <td><a href="#"><span class="glyphicon glyphicon-trash"></span></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

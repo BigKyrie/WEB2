@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>StudentID</th>
+        <th>School</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Edit Student</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+    <tr>
+      <td>{{user.name}}</td>
+      <td>{{user.student_id}}</td>
+      <td>{{user.department}}</td>
+      <td>{{user.phone_number}}</td>
+      <td>{{user.email}}</td>
+      <td><a href="{{url_for('main.edit_user',id=user.id)}}"><span class="glyphicon glyphicon-cog"></span></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

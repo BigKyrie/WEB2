@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Title</th>
+        <th>Module Leader</th>
+        <th>Exam Date</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for module in modules %}
+    <tr>
+      <td>{{module.module_code}}</td>
+      <td>{{module.title}}</td>
+      <td>{{module.staff}}</td>
+      <td>{{module.exam_date}}</td>
+      <td><a href="{{url_for('main.give_up_module',id=module.id)}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
