@@ -1,12 +1,13 @@
 import os
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
     SECRET_KEY = 'abcde'
     MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.163.com')
-    MAIL_PORT = int(os.environ.get('MAIL_PORT', '25'))
-    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', 'true')
+    MAIL_PORT = int(os.environ.get('MAIL_PORT', '465'))
+    MAIL_USE_SSL = os.environ.get('MAIL_USE_SSL', 'True')
     MAIL_USERNAME = 'bigkyrie@163.com'
     MAIL_PASSWORD = 'weiyuheng123'
     FLASKY_MAIL_SUBJECT_PREFIX = '[Management]'
